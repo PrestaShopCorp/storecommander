@@ -19,11 +19,10 @@
     </div>
     <div style="clear: both;"></div>
     <br/><br/>
-    <center><a href="{$currentUrl}{$baseParams}&sc_step=2" class="sc_bouton loading">{l s='Start downloading and installing SC' mod='storecommander'}</a></center>
+    <center><a href="http://www.storecommander.com/fr/index.php?controller=partnerprestashop" target="_blank" class="sc_bouton loading">{l s='Downloading SC' mod='storecommander'}</a></center>
     <br/><br/><br/>
     <p>
-        {l s='The module Store Commander will be downloaded in a new directory /modules/storecommander/ on your store (no modification is made to Prestashop).' mod='storecommander'}<br/>
-        {l s='You can then start Store Commander from Modules>Store Commander.' mod='storecommander'}<br/>
-        {l s='If you need assistance, please contact us at' mod='storecommander'} <a href="mailto:support@storecommander.com">support@storecommander.com</a>
+         {l s='If you need assistance, please contact us at' mod='storecommander'} <a href="mailto:support@storecommander.com">support@storecommander.com</a>
+
     </p>
 </fieldset>
