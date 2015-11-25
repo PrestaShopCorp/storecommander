@@ -21,10 +21,6 @@
  *
  **/
 
-if (Tools::getIsset("DEBUG")) {
-    error_reporting(E_ALL ^ E_NOTICE);
-    @ini_set('display_errors', 'on');
-}
 
 class StoreCommander extends Module
 {
@@ -38,17 +34,12 @@ class StoreCommander extends Module
     {
         $this->name = 'storecommander';
         $this->tab = 'administration';
-        $this->version = '1.5';
+        $this->version = '1.5.0';
         $this->author = 'Mise En Prod';
         $this->module_key = '';
         parent::__construct();
 
-        $this->currentUrl = $this->getCurrentUrl();
         $token = Tools::getValue("token", "");
-        $this->baseParams = "?controller=AdminModules&configure=storecommander&token=" . $token;
-        if (version_compare(_PS_VERSION_, '1.5.0.0', '<')) {
-            $this->baseParams = "?tab=AdminModules&configure=storecommander&token=" . $token;
-        }
         $this->page = basename(__FILE__, '.php');
 
         $this->displayName = $this->l('Store Commander Installer');
@@ -79,8 +70,6 @@ class StoreCommander extends Module
         }
 
         $this->context->smarty->assign(array(
-            'currentUrl' => $this->currentUrl,
-            'baseParams' => $this->baseParams,
             'module_name' => $this->name
         ));
 
@@ -93,22 +82,5 @@ class StoreCommander extends Module
             $_html .= $this->display(__FILE__, 'views/templates/hook/etape_preinstall_1.4.tpl');
         }
         return $_html;
-    }
-
-    public function  getCurrentUrl()
-    {
-        $pageURL = 'http';
-        if (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {
-            $pageURL .= "s";
-        }
-        $pageURL .= "://";
-        if ($_SERVER["SERVER_PORT"] != "80") {
-            $pageURL .= $_SERVER["HTTP_HOST"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
-        } else {
-            $pageURL .= $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
-        }
-        $exp = explode("?", $pageURL);
-        $pageURL = $exp[0];
-        return $pageURL;
     }
 }
