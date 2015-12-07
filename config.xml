@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>storecommander</name>
+	<displayName><![CDATA[Store Commander Installer]]></displayName>
+	<version><![CDATA[1.5.0]]></version>
+	<description><![CDATA[60 days risk-free trial version. A revolution in Prestashop management, subscription-free, unlimited users, Mac &amp; PC]]></description>
+	<author><![CDATA[Mise En Prod]]></author>
+	<tab><![CDATA[administration]]></tab>
+	<confirmUninstall><![CDATA[Warning! This action definitely uninstall Store Commander!]]></confirmUninstall>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>

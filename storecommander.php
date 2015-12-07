@@ -27,7 +27,6 @@ class StoreCommander extends Module
 
     public $currentUrl = '';
     public $_err = array();
-    private $url_zip_SC = "http://www.storecommander.com/files/StoreCommander.zip";
     public $context;
 
     public function __construct()
@@ -39,16 +38,12 @@ class StoreCommander extends Module
         $this->module_key = '';
         parent::__construct();
 
-        $token = Tools::getValue("token", "");
         $this->page = basename(__FILE__, '.php');
 
         $this->displayName = $this->l('Store Commander Installer');
         $this->description = $this->l('60 days risk-free trial version. A revolution in Prestashop management, subscription-free, unlimited users, Mac & PC');
         $this->confirmUninstall = $this->l('Warning! This action definitely uninstall Store Commander!');
         $warning = '';
-        if (!is_writeable(_PS_ROOT_DIR_ . '/modules/' . $this->name)) {
-            $warning .= ' ' . $this->l('The /modules/storecommander folder must be writable.');
-        }
         if (!Configuration::get('SC_INSTALLED')) {
             $warning .= ' ' . $this->l('Store Commander is not installed!');
         }
